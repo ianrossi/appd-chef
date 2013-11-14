@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns25:export-package
+    xmlns:ns10="http://www.vmware.com/darwin/schema/beans/cloud/provider"
+    xmlns:ns8="http://www.vmware.com/darwin/schema/beans/catalog/component"
+    xmlns:ns17="http://www.vmware.com/darwin/schema/beans/update/profile"
+    xmlns:ns15="http://www.vmware.com/darwin/schema/beans/flow"
+    xmlns:ns26="http://www.vmware.com/darwin/schema/beans/notification"
+    xmlns:ns7="http://www.vmware.com/darwin/schema/beans/entity"
+    xmlns:ns13="http://www.vmware.com/darwin/schema/beans/cloud/tunnel"
+    xmlns:ns21="http://www.vmware.com/darwin/schema/beans/security/user"
+    xmlns:ns23="http://www.vmware.com/darwin/schema/beans/ssl"
+    xmlns:ns20="http://www.vmware.com/darwin/schema/beans/security/ldap"
+    xmlns:ns14="http://www.vmware.com/darwin/schema/beans/deployment/environment"
+    xmlns:ns22="http://www.vmware.com/darwin/schema/beans/networking"
+    xmlns:ns2="http://www.vmware.com/darwin/schema/beans/response"
+    xmlns:ns24="http://www.vmware.com/darwin/schema/beans/api"
+    xmlns:ns18="http://www.vmware.com/darwin/schema/beans/deployment"
+    xmlns:ns6="http://www.vmware.com/darwin/schema/beans/metatag"
+    xmlns:ns5="http://www.vmware.com/darwin/schema/beans/props"
+    xmlns:ns11="http://www.vmware.com/darwin/schema/beans/physical/template"
+    xmlns:ns27="http://www.vmware.com/darwin/schema/beans/license"
+    xmlns:ns25="http://www.vmware.com/darwin/schema/beans/exim"
+    xmlns:ns16="http://www.vmware.com/darwin/schema/beans/deployment/profile"
+    xmlns:ns19="http://www.vmware.com/darwin/schema/beans/driver/location"
+    xmlns:ns9="http://www.vmware.com/darwin/schema/beans/scripts"
+    xmlns:ns12="http://www.vmware.com/darwin/schema/beans/blueprint"
+    xmlns:ns4="http://www.vmware.com/darwin/schema/beans/application" xmlns:ns3="http://www.vmware.com/darwin/schema/beans/security">
+    <errors>false</errors>
+    <application-director-version>vFabric Application Director CLI BUILD [5.2.0-1052405]</application-director-version>
+    <service-versions>
+        <id>0</id>
+        <inactive>false</inactive>
+        <lock-version>0</lock-version>
+        <last-updated>2013-11-14T20:50:50+00:00</last-updated>
+        <last-update-user>irossi</last-update-user>
+        <created>2013-11-14T20:42:37+00:00</created>
+        <create-user>irossi</create-user>
+        <name>Chef Bootstrap</name>
+        <description>A service that will get a node ready to be consumed by Chef Server. The idea is to do most of what a knife bootstrap command does, minus the assignment of run list items. Currently Linux-only. Once this service completes successfully on the node, you can then use another bash script to run:
+
+chef-client -o 'recipe[your_recipe]' 
+
+or you can do:
+
+chef-client -j 'YOUR_JSON_HERE'
+
+on the node. 
+
+In this setup, Application Director can act as an orchestrator or composer and manage the provision of clusters, while Chef takes care of the details per-node. This design will still work fully with Chef Server and all the power it provides.
+
+Requirements:
+- curl installed on the node to be bootstrapped
+- An accessible HTTP file repository 
+- A validation.pem file hosted in the file repository
+- A client.rb file that points to the Chef Server hosted on the file repository</description>
+        <revision>0</revision>
+        <major>1</major>
+        <minor>2</minor>
+        <micro>0</micro>
+        <qualifier></qualifier>
+        <dynamically-installable>true</dynamically-installable>
+        <auto-bind-properties>false</auto-bind-properties>
+        <icon-name></icon-name>
+        <props>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-14T20:50:50+00:00</last-updated>
+            <last-update-user>irossi</last-update-user>
+            <created>2013-11-14T20:42:37+00:00</created>
+            <create-user>irossi</create-user>
+            <name></name>
+            <description>The path that Chef will use for config files on the node.</description>
+            <key>chefpath</key>
+            <prop-type>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:15+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:15+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>String</name>
+                <description>String (java.lang.String).</description>
+            </prop-type>
+            <required>false</required>
+            <secured>false</secured>
+            <prop-auto-bind-type>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>1</lock-version>
+                <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:16+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>None</name>
+                <description>Property will not participate in auto-binding.</description>
+                <prop-auto-bind-type-enum>NONE</prop-auto-bind-type-enum>
+            </prop-auto-bind-type>
+            <value><![CDATA[/etc/chef]]></value>
+            <readonly>false</readonly>
+            <overridable>false</overridable>
+            <expression>false</expression>
+            <ns5:bound-prop>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-11-14T20:50:50+00:00</last-updated>
+                <last-update-user>irossi</last-update-user>
+                <created>2013-11-14T20:42:37+00:00</created>
+                <create-user>irossi</create-user>
+                <bind-lifecycle-type>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Catalog</name>
+                    <description>Bindable at service/catalog level.</description>
+                    <lifecycle-order>1</lifecycle-order>
+                </bind-lifecycle-type>
+                <value><![CDATA[/etc/chef]]></value>
+                <overridable>false</overridable>
+                <expression>false</expression>
+            </ns5:bound-prop>
+        </props>
+        <props>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-14T20:50:50+00:00</last-updated>
+            <last-update-user>irossi</last-update-user>
+            <created>2013-11-14T20:42:37+00:00</created>
+            <create-user>irossi</create-user>
+            <name></name>
+            <description>Repository for Chef config files.</description>
+            <key>file_repo</key>
+            <prop-type>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:15+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:15+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>String</name>
+                <description>String (java.lang.String).</description>
+            </prop-type>
+            <required>false</required>
+            <secured>false</secured>
+            <prop-auto-bind-type>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>1</lock-version>
+                <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:16+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>None</name>
+                <description>Property will not participate in auto-binding.</description>
+                <prop-auto-bind-type-enum>NONE</prop-auto-bind-type-enum>
+            </prop-auto-bind-type>
+            <value><![CDATA[http://usmar-dcuinf001.cgcmulab.com/pub/chef]]></value>
+            <readonly>false</readonly>
+            <overridable>false</overridable>
+            <expression>false</expression>
+            <ns5:bound-prop>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-11-14T20:50:50+00:00</last-updated>
+                <last-update-user>irossi</last-update-user>
+                <created>2013-11-14T20:42:37+00:00</created>
+                <create-user>irossi</create-user>
+                <bind-lifecycle-type>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Catalog</name>
+                    <description>Bindable at service/catalog level.</description>
+                    <lifecycle-order>1</lifecycle-order>
+                </bind-lifecycle-type>
+                <value><![CDATA[http://usmar-dcuinf001.cgcmulab.com/pub/chef]]></value>
+                <overridable>false</overridable>
+                <expression>false</expression>
+            </ns5:bound-prop>
+        </props>
+        <meta-tag>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-08T14:20:41+00:00</last-updated>
+            <last-update-user>jballou</last-update-user>
+            <created>2013-03-14T00:21:16+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>Other</name>
+            <description>Miscellaneous</description>
+            <meta-tag-type>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:16+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>Server Type</name>
+                <description>Server type, primarily used for organizing data.</description>
+                <meta-tag-enum>SERVER_TYPE</meta-tag-enum>
+                <user-managed-type>true</user-managed-type>
+            </meta-tag-type>
+        </meta-tag>
+        <service>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-14T20:51:01+00:00</last-updated>
+            <last-update-user>irossi</last-update-user>
+            <created>2013-11-06T15:32:03+00:00</created>
+            <create-user>irossi</create-user>
+            <name>Chef Bootstrap</name>
+            <description></description>
+            <revision>0</revision>
+            <icon-name></icon-name>
+        </service>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-13T20:40:49+00:00</last-updated>
+            <last-update-user>admin</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>CentOS32</name>
+            <description>CentOS 5.6 32bit</description>
+            <revision>0</revision>
+            <major>5</major>
+            <minor>6</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>CentOS32</name>
+                <description>CentOS 32bit</description>
+                <revision>0</revision>
+                <icon-name>centos</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_32</name>
+                    <description>x86_32</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_32</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-13T20:40:49+00:00</last-updated>
+            <last-update-user>admin</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>CentOS32</name>
+            <description>CentOS 5.7 32bit</description>
+            <revision>0</revision>
+            <major>5</major>
+            <minor>7</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>CentOS32</name>
+                <description>CentOS 32bit</description>
+                <revision>0</revision>
+                <icon-name>centos</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_32</name>
+                    <description>x86_32</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_32</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-13T20:40:49+00:00</last-updated>
+            <last-update-user>admin</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>CentOS32</name>
+            <description>CentOS 6.0 32bit</description>
+            <revision>0</revision>
+            <major>6</major>
+            <minor>0</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>CentOS32</name>
+                <description>CentOS 32bit</description>
+                <revision>0</revision>
+                <icon-name>centos</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_32</name>
+                    <description>x86_32</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_32</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-13T20:40:49+00:00</last-updated>
+            <last-update-user>admin</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>CentOS64</name>
+            <description>CentOS 5.6 64bit</description>
+            <revision>0</revision>
+            <major>5</major>
+            <minor>6</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>CentOS64</name>
+                <description>CentOS 64bit</description>
+                <revision>0</revision>
+                <icon-name>centos</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_64</name>
+                    <description>x86_64</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_64</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-13T20:40:49+00:00</last-updated>
+            <last-update-user>admin</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>CentOS64</name>
+            <description>CentOS 6.0 64bit</description>
+            <revision>0</revision>
+            <major>6</major>
+            <minor>0</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>CentOS64</name>
+                <description>CentOS 64bit</description>
+                <revision>0</revision>
+                <icon-name>centos</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_64</name>
+                    <description>x86_64</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_64</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-08T14:11:05+00:00</last-updated>
+            <last-update-user>jballou</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>RHEL32</name>
+            <description>RHEL 6.1 32bit</description>
+            <revision>0</revision>
+            <major>6</major>
+            <minor>1</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>RHEL32</name>
+                <description>Red Hat Enterprise Linux 32bit</description>
+                <revision>0</revision>
+                <icon-name>redhat</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_32</name>
+                    <description>x86_32</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_32</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-08T14:11:05+00:00</last-updated>
+            <last-update-user>jballou</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>RHEL64</name>
+            <description>RHEL 6.1 64bit</description>
+            <revision>0</revision>
+            <major>6</major>
+            <minor>1</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>RHEL64</name>
+                <description>Red Hat Enterprise Linux 64bit</description>
+                <revision>0</revision>
+                <icon-name>redhat</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_64</name>
+                    <description>x86_64</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_64</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-01T16:33:43+00:00</last-updated>
+            <last-update-user>jballou</last-update-user>
+            <created>2013-10-30T14:42:40+00:00</created>
+            <create-user>jcasella</create-user>
+            <name>RHEL64_6.4</name>
+            <description></description>
+            <revision>0</revision>
+            <major>1</major>
+            <minor>0</minor>
+            <micro>0</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <icon-name></icon-name>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-10-30T14:44:52+00:00</last-updated>
+                <last-update-user>jcasella</last-update-user>
+                <created>2013-10-30T14:42:28+00:00</created>
+                <create-user>jcasella</create-user>
+                <name>RHEL64_6.4</name>
+                <description>Red Hat Enterprise Linux 64bit version 6.4</description>
+                <revision>0</revision>
+                <icon-name></icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_64</name>
+                    <description>x86_64</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_64</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-13T20:40:48+00:00</last-updated>
+            <last-update-user>admin</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>Ubuntu32</name>
+            <description>Ubuntu 10.04.3 32bit</description>
+            <revision>0</revision>
+            <major>10</major>
+            <minor>4</minor>
+            <micro>3</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>Ubuntu32</name>
+                <description>Ubuntu 32bit</description>
+                <revision>0</revision>
+                <icon-name>ubuntulogo</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_32</name>
+                    <description>x86_32</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_32</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <os-versions>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-08T14:11:05+00:00</last-updated>
+            <last-update-user>jballou</last-update-user>
+            <created>2011-11-22T19:59:18+00:00</created>
+            <create-user>SYSTEM</create-user>
+            <name>Ubuntu64</name>
+            <description>Ubuntu 10.04.2 64bit</description>
+            <revision>0</revision>
+            <major>10</major>
+            <minor>4</minor>
+            <micro>2</micro>
+            <qualifier></qualifier>
+            <dynamically-installable>false</dynamically-installable>
+            <auto-bind-properties>false</auto-bind-properties>
+            <operating-system>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:17+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:17+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>Ubuntu64</name>
+                <description>Ubuntu 64bit</description>
+                <revision>0</revision>
+                <icon-name>ubuntulogo</icon-name>
+                <os-family-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>Linux</name>
+                    <description>Linux based operating systems.</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>OS Family</name>
+                        <description>Operating System (OS) Family.</description>
+                        <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <os-family>LINUX</os-family>
+                </os-family-meta-tag>
+                <hardware-architecture-meta-tag>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <name>x86_64</name>
+                    <description>x86_64</description>
+                    <meta-tag-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Hardware Architecture</name>
+                        <description>Hardware Architecture, used to describe whether something is or supports 32 bit, 64 bit, etc.</description>
+                        <meta-tag-enum>HARDWARE_ARCHITECTURE</meta-tag-enum>
+                        <user-managed-type>false</user-managed-type>
+                    </meta-tag-type>
+                    <hardware-architecture>X86_64</hardware-architecture>
+                </hardware-architecture-meta-tag>
+            </operating-system>
+        </os-versions>
+        <ns9:component-version-script>
+            <id>0</id>
+            <inactive>false</inactive>
+            <lock-version>0</lock-version>
+            <last-updated>2013-11-14T20:50:50+00:00</last-updated>
+            <last-update-user>irossi</last-update-user>
+            <created>2013-11-14T20:42:37+00:00</created>
+            <create-user>irossi</create-user>
+            <description></description>
+            <script># Download and install Chef
+curl -L https://www.opscode.com/chef/install.sh | bash
+
+# Create Chef's config dir
+mkdir $chefpath
+
+# Create the validation key
+wget $file_repo/validation.pem -O $chefpath/validation.pem
+
+# Write the chef-client config file
+wget $file_repo/client.rb -O $chefpath/client.rb</script>
+            <embedded>true</embedded>
+            <script-type>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:16+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>Bash Script</name>
+                <description>Bash shell script.</description>
+                <name-message-key>type.script.bash.name</name-message-key>
+                <description-message-key>type.script.bash.description</description-message-key>
+                <supported-os-details>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <os-family>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Linux</name>
+                        <description>Linux based operating systems.</description>
+                        <meta-tag-type>
+                            <id>0</id>
+                            <inactive>false</inactive>
+                            <lock-version>0</lock-version>
+                            <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                            <last-update-user>SYSTEM</last-update-user>
+                            <created>2013-03-14T00:21:16+00:00</created>
+                            <create-user>SYSTEM</create-user>
+                            <name>OS Family</name>
+                            <description>Operating System (OS) Family.</description>
+                            <meta-tag-enum>OS_FAMILY</meta-tag-enum>
+                            <user-managed-type>false</user-managed-type>
+                        </meta-tag-type>
+                        <os-family>LINUX</os-family>
+                    </os-family>
+                    <supports-array-props>true</supports-array-props>
+                    <supports-output-props>true</supports-output-props>
+                    <exec-command>source &lt;exec-script&gt; &lt;script-file&gt; &lt;output-properties-file&gt;</exec-command>
+                    <exec-script>trap "APPDEXITSTATUS=\$?;printenv &gt; $2;exit $APPDEXITSTATUS" EXIT
+# Execute action script
+source $1
+APPDRETURNSTATUS=$?
+# Unset trap
+trap - EXIT
+# Save env variables in output properties file
+printenv &gt; $2
+exit $APPDRETURNSTATUS
+</exec-script>
+                    <exec-script-extension>sh</exec-script-extension>
+                    <file-extension>sh</file-extension>
+                </supported-os-details>
+                <script-type-expression>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <prop-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:15+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:15+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>String</name>
+                        <description>String (java.lang.String).</description>
+                    </prop-type>
+                    <expression>$&lt;property-name&gt;</expression>
+                </script-type-expression>
+                <script-type-expression>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <prop-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Content</name>
+                        <description>Content (java.lang.String).</description>
+                    </prop-type>
+                    <expression>$&lt;property-name&gt;</expression>
+                </script-type-expression>
+                <script-type-expression>
+                    <id>0</id>
+                    <inactive>false</inactive>
+                    <lock-version>0</lock-version>
+                    <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                    <last-update-user>SYSTEM</last-update-user>
+                    <created>2013-03-14T00:21:16+00:00</created>
+                    <create-user>SYSTEM</create-user>
+                    <prop-type>
+                        <id>0</id>
+                        <inactive>false</inactive>
+                        <lock-version>0</lock-version>
+                        <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                        <last-update-user>SYSTEM</last-update-user>
+                        <created>2013-03-14T00:21:16+00:00</created>
+                        <create-user>SYSTEM</create-user>
+                        <name>Array</name>
+                        <description>Array</description>
+                    </prop-type>
+                    <expression>${&lt;property-name&gt;[@]}</expression>
+                </script-type-expression>
+            </script-type>
+            <component-lifecycle-type>
+                <id>0</id>
+                <inactive>false</inactive>
+                <lock-version>0</lock-version>
+                <last-updated>2013-03-14T00:21:16+00:00</last-updated>
+                <last-update-user>SYSTEM</last-update-user>
+                <created>2013-03-14T00:21:16+00:00</created>
+                <create-user>SYSTEM</create-user>
+                <name>INSTALL</name>
+                <description>Install lifecycle on a component.</description>
+                <name-message-key>type.lifecycle.install.name</name-message-key>
+                <description-message-key>type.lifecycle.install.description</description-message-key>
+            </component-lifecycle-type>
+            <reboot-after>false</reboot-after>
+        </ns9:component-version-script>
+    </service-versions>
+</ns25:export-package>
