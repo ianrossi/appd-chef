@@ -24,3 +24,8 @@ Requirements:
 - A client.rb file that points to the Chef Server hosted on the file
   repository
   
+Usage
+=====
+
+In order to use this service in VMWare Application Director, download the ChefBootstrap.xml file to your AppD server and use the CLI import instructions from VMWare: 
+http://pubs.vmware.com/appdirector-5/index.jsp?topic=%2Fcom.vmware.appdirector5.using.doc%2FGUID-CDFEACB7-861B-4999-9D84-D31344895613.html
