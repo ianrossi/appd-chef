@@ -1,4 +1,4 @@
-A service that will get a node ready to be consumed by Chef Server.
+A service that will get a node ready to be consumed by Chef Server in a provisioning environment run by VMWare's Application Directory. (Chef-AppD integration)
 The idea is to do most of what a knife bootstrap command does, minus
 the assignment of run list items. Currently Linux-only. Once this
 service completes successfully on the node, you can then use another
